@@ -1,0 +1,146 @@
+1. Título: Base de datos de Horse Colic
+
+2. Fuente de información
+   - Creadores: Mary McLeish y Matt Cecile
+Departamento de Ciencias de la Computación
+Universidad de Guelph
+Guelph, Ontario, Canadá N1G 2W1
+mdmcleish@water.waterloo.edu
+   - Donante: Will Taylor (taylor@pluto.arc.nasa.gov)
+   - Fecha: 6/8/89
+
+3. Uso pasado:
+   -- Desconocido
+
+4. Información relevante:
+
+   - 2 archivos de datos
+      - horse-colic.data: 300 instancias de entrenamiento
+      - horse-colic.test: 68 casos de prueba
+   - Posibles atributos de clase: 24 (si la lesión es quirúrgica)
+     - otros incluyen: 23, 25, 26 y 27
+   - Muchos tipos de datos: (continuo, discreto y nominal)
+
+5. Número de instancias: 368 (300 para entrenamiento, 68 para pruebas)
+
+6. Número de atributos: 28
+
+7. Información de atributos:
+?,1,534572,38.0,48,20,3,1,3,1,4,3,1,2,1,?,3,5,43,73,2,1,?,1,03111,00000,00000,2
+  1: ¿cirugía?
+          1 = Sí, tuvo cirugía
+          2 = se trató sin cirugía
+
+  2: edad valores 1-9
+          1 = caballo adulto
+          2 = Joven (<6 meses) => 9
+
+  3: Número de hospital
+          - identificación numérica
+          - el número de caso asignado al caballo
+            (puede no ser único si el caballo se trata> 1 vez)
+
+  4: temperatura rectal
+          - lineal
+          - en grados centígrados.
+          - Puede producirse una temperatura elevada debido a una infección.
+          - la temperatura puede reducirse cuando el animal está en estado de shock tardío
+          - la temperatura normal es 37,8
+          - este parámetro generalmente cambiará a medida que avanza el problema
+               p.ej. puede comenzar con normalidad y luego elevarse debido a
+                   la lesión, pasando de nuevo a través del rango normal a medida que el
+                   caballo entra en shock
+  5: pulso
+          - lineal
+          - la frecuencia cardíaca en latidos por minuto
+          - es un reflejo de la condición del corazón: 30-40 es normal para adultos
+          - es raro tener una tasa más baja de lo normal aunque los caballos atléticos
+            puede tener una tasa de 20-25
+          - animales con lesiones dolorosas o con shock circulatorio
+            puede tener una frecuencia cardíaca elevada
+
+  6: frecuencia respiratoria
+          - lineal
+          - la tasa normal es de 8 a 10
+          - la utilidad es dudosa debido a las grandes fluctuaciones
+
+  7: temperatura de las extremidades
+          - una indicación subjetiva de circulación periférica
+          - valores posibles:
+               1 = normal
+               2 = cálido
+               3 = Frío
+               4 = Frío
+          - extremidades frías a frías indican un posible shock
+          - Las extremidades calientes deben correlacionarse con una temperatura rectal elevada.
+
+  8: pulso periférico
+          - subjetivo
+          - los valores posibles son:
+               1 = normal
+               2 = aumentado
+               3 = reducido
+               4 = ausente
+          - p.p. normal o aumentada son indicativos de una circulación adecuada
+            mientras que está reducido o ausente indica una mala perfusión
+
+  9: membranas mucosas
+          - una medida subjetiva de color
+          - los valores posibles son:
+               1 = rosa normal
+               2 = rosa brillante
+               3 = rosa pálido
+               4 = cianótico pálido
+               5 = rojo brillante / inyectado
+               6 = cianótico oscuro
+          - 1 y 2 probablemente indican un aumento normal o levemente
+            circulación
+          - 3 pueden ocurrir al comienzo del shock
+          - 4 y 6 son indicativos de compromiso circulatorio grave
+          - 5 es más indicativo de septicemia
+
+ 10: tiempo de llenado capilar
+          - un juicio clínico. Cuanto más larga sea la recarga, más pobre será la
+            circulación
+          - valores posibles
+               1 = <3 segundos
+               2 => = 3 segundos
+
+ 11: dolor: un juicio subjetivo del nivel de dolor del caballo
+          - valores posibles:
+               1 = alerta, sin dolor
+               2 = deprimido
+               3 = dolor leve intermitente
+               4 = dolor intenso intermitente
+               5 = dolor intenso continuo
+          - ¡NO debe tratarse como una variable ordenada o discreta!
+          - En general, cuanto más doloroso, más probable es que requiera
+            cirugía
+          - el tratamiento previo del dolor puede enmascarar el nivel del dolor hasta cierto punto
+
+ 12: peristalsis
+          - una indicación de la actividad en el intestino del caballo. Como la tripa
+            se distiende más o el caballo se vuelve más tóxico, el
+            la actividad disminuye
+          - valores posibles:
+               1 = hipermotil
+               2 = normal
+               3 = hipomotilo
+               4 = ausente
+
+ 13: distensión abdominal
+          - Un parámetro IMPORTANTE.
+          - valores posibles
+               1 = ninguno
+               2 = leve
+               3 = moderado
+               4 = severo
+          - Es probable que un animal con distensión abdominal sea doloroso y
+            tienen una motilidad intestinal reducida.
+          - es probable que un caballo con distensión abdominal severa requiera
+            cirugía solo para aliviar la presión
+
+ 14: sonda nasogástrica
+          - esto se refiere a cualquier gas que salga del tubo
+          - valores posibles:
+               1 = ninguno
